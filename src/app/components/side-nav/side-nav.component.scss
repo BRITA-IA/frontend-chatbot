@@ -1,0 +1,43 @@
+@import '../../../styles.scss';
+
+.row {
+    background: $primary-dark-color;
+    height: 100vh;
+    color: $text-color;
+}
+
+.secction {
+    p {
+        transition: all 0.5s ease;
+        cursor: pointer;
+        margin-bottom: 7px;
+
+        &:hover {
+            color: $hover-text-color;
+        }
+    }
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 100px;
+    transition: all 0.5s ease;
+    &:hover {
+        background: $primary-color;
+    }
+    &-image {
+        margin-right: 20px;
+        height: 30px;
+        width: 30px;
+        color: $primary-color;
+        background: $secondary-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10000px;
+    }
+}

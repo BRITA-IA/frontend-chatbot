@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="nav-info" [ngClass]="{'open-menu': menuOpen}">
+        <app-side-nav [ChatComponent]="childComponent"></app-side-nav>
+    </div>
+    <div class="menu d-block d-md-none">
+        <i (click)="open()" class="bi bi-list"></i>
+    </div>
+    <div class="col-12 home d-flex flex-column justify-content-between p-4 align-items-center">
+        <app-start-page [childComponent]="childComponent" *ngIf="!chatState"
+            class="h-100 d-flex align-items-center justify-content-center"></app-start-page>
+        <app-chat-messages *ngIf="chatState"></app-chat-messages>
+        <div class="input-message">
+            <input [(ngModel)]="inputValue" type="text" placeholder="Escribe cualquier pregunta..."
+                (keydown.enter)="sendMessage($event)" [disabled]="loading.isLoading()">
+            <i class="bi bi-send icon"></i>
+        </div>
+    </div>
+</div>

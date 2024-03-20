@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+$primary-color: #626161;
+$primary-dark-color: #494545;
+
+$secondary-color: #D9D9D9;
+
+$text-color: #D9D9D9;
+$hover-text-color: #8d8d8d;
+
+$user-color-image: #6e8b5e ;
+$bot-color-image: #6557e6 ;
+
+//chat 
+$image-bot: 'assets/images/bot.png';
+$font-size-message: 17px;
+
+//scroll chat
+.scroll-down-animation {
+    animation: scrollDown 0.5s ease-in-out;
+  }
+  
+  @keyframes scrollDown {
+    from {
+      /* Establece la posición inicial del scroll */
+      transform: translateY(0);
+    }
+    to {
+      /* Establece la posición final del scroll */
+      transform: translateY(100%);
+    }
+  }
+
+
+// global styles
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 100px;
+    transition: all 0.5s ease;
+    &:hover {
+        background: $primary-color;
+    }
+    &-image {
+        margin-right: 20px;
+        height: 30px;
+        width: 30px;
+        color: $primary-color;
+        background: $secondary-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10000px;
+    }
+}

@@ -1,0 +1,113 @@
+@import '../../../../../styles.scss';
+
+.messages {
+    height: 85vh;
+    overflow: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.user-info {
+    color: $text-color;
+
+    &.me {
+        justify-content: end;
+
+    }
+
+    &.you {
+        justify-content: start;
+    }
+
+    padding: 0;
+    padding-bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;
+
+    &-image {
+        margin: 0;
+        height: 40px;
+        width: 40px;
+        color: $text-color;
+        font-weight: 300;
+        font-size: 15px;
+        background: $user-color-image;
+    }
+
+    &-bot {
+        margin: 0;
+        height: 40px;
+        width: 40px;
+        color: $text-color;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $bot-color-image;
+    }
+
+    img {
+        width: 40px;
+        border-radius: 100px;
+
+    }
+}
+
+.text-message {
+    color: $text-color;
+    width: 100%;
+    font-size: $font-size-message;
+
+}
+
+.typed-text {
+    font-size: $font-size-message;
+    color: $text-color;
+    // width: 0; /* Inicialmente, el texto no se muestra */
+    white-space: pre-wrap; /* Permite que el texto se divida en varias líneas y mantenga los saltos de línea */
+    animation: typing 1s;
+    width: 100%;
+  }
+  .text-animation {
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+.time-message {
+    width: 100%;
+    // padding-right: 50px;
+    color: $text-color;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.message {
+    width: 60vw;
+    &.me {
+        text-align: end;
+
+    }
+
+    &.you {
+        text-align: start;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .message {
+        width: 95vw;
+    }
+}
+
+
+.bg-loading {
+    background: none;
+    border: none;
+}

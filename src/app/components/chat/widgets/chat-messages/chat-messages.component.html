@@ -1,0 +1,31 @@
+<div class="container messages" #chatContainer>
+    <div class="row justify-content-center" *ngIf="messages.length > 0">
+        <ng-container *ngFor="let message of messages; let last = last">
+            <div class="col-12 message" [ngClass]="{'me': message.id == userId, 'you': message.id != userId }">
+                <div class="user-info me" *ngIf="message.id == userId">
+                    <div class="px-2">{{message.user}}</div>
+                    <div class="user-info-image">
+                        {{message.user.charAt(1).toUpperCase()}}
+                    </div>
+                </div>
+                <div class="user-info you" *ngIf="message.id != userId">
+                    <div class="user-info-bot">
+                        <img src="assets/images/robot.jpg" alt="">
+                    </div>
+                    <div class="px-2">{{message.user}}</div>
+                </div>
+
+                <div [ngClass]="{'text-message': message.id == userId, 'typed-text': message.id != userId}">
+                    <span [ngClass]="{'text-animation': message.id != userId}">{{message.message}}</span>
+                </div>
+                <div class="time-message">
+                    <span class=""> hace 1 hora</span>
+                </div>
+            </div>
+            <button class="btn btn-primary bg-loading" type="button" disabled *ngIf="loading.isLoading() && last">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                generando respuesta ...
+            </button>
+        </ng-container>
+    </div>
+</div>

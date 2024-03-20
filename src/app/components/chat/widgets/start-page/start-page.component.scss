@@ -1,0 +1,22 @@
+@import '../../../../../styles.scss';
+
+.recomendation {
+    display: flex;
+    // height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    border: solid 1px $text-color;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    color: $text-color;
+
+    i {
+        font-size: 20px;
+    }
+
+    &:hover {
+        background: $primary-dark-color;
+    }
+}

@@ -1,0 +1,11 @@
+<div class="start-chat">
+    <h3 class="text-white text-center mb-3">¡Hola!, puedes hacerme una pregunta</h3>
+    <div class="row align-items-center justify-content-center">
+        <div class="col-12 col-sm-6 mb-3" *ngFor="let item of recomendations">
+            <div class="recomendation" (click)="sendRecomendation(item)">
+                <h3>{{item}}</h3>
+                <i class="bi bi-arrow-right-short"></i>
+            </div>
+        </div>
+    </div>
+</div>
