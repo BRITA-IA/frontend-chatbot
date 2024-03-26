@@ -11,11 +11,11 @@
                 <p (click)="openQuestion(description)" *ngFor="let description of section.sections"> {{description}}</p>
             </div>
         </div>
-        <div class="user-info">
+        <div class="user-info mt-3">
             <div class="user-info-image">
-                U
+                {{userData.name.charAt(0).toUpperCase()}}
             </div>
-            <div>Gerardo Joaquin</div>
+            <div>{{userData.name}}</div>
         </div>
     </div>
 </div>

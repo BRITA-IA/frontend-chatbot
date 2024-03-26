@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LoadingService } from '../../../../services/loading.service';
 import { Message } from '../../../../utils/message.data';
 import { ChatService } from '../../../../services/chat.service';
+import { userData } from '../../../../utils/constants';
 
 @Component({
   selector: 'app-chat-messages',
@@ -16,7 +17,7 @@ export class ChatMessagesComponent implements AfterViewInit {
   @ViewChild('chatContainer', { static: false }) public chatContainer!: ElementRef;
 
   public messages: Message[] = [];
-  userId = 1
+  public userData = userData
 
   constructor(
     public loading: LoadingService,

@@ -9,14 +9,18 @@ export interface Section {
 
 
 export const sections: Array<Section> = [
-    {title: 'Becas', sections: [
-        'Me puedes decir que tipo de becas hay',
-        'Me puedes decir en que escuela esta la beca X',
-        'Que Escuelas tiene becas',
-    ]},
-    {title: 'Escuelas', sections: [
-        '¿Que escuelas hay disponibles?',
-        'Lorem ipsum dolor sit amet, consectetur adipisicing',
-        '¿Que escuelas tienen becas?'
-    ]}
+    {
+        title: 'Becas', sections: [
+            '¿Pueden darme más información sobre las becas en áreas de tecnología e innovación?',
+            '¿Existen becas para investigadores o proyectos de investigación?',
+            '¿Hay becas disponibles para estudiantes internacionales?',
+        ]
+    },
+    {
+        title: 'Otra cosa', sections: [
+            'Otra pregunta',
+            'Lorem ipsum dolor sit amet, consectetur adipisicing',
+            '¿Otro tipo de pregunta?'
+        ]
+    }
 ]

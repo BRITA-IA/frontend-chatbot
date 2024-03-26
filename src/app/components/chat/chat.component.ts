@@ -34,9 +34,13 @@ export class ChatComponent implements OnInit {
 
   sendMessage(ev: any) {
     const message = ev.target.value;
+    if (this.childComponent) {
+      this.msjService.scrollToBottom(this.childComponent.chatContainer)
+    }
     this.msjService.initChat()
     this.msjService.addMessage(message).subscribe(() => {
       this.inputValue = ''
+
       if (this.childComponent) {
         this.msjService.scrollToBottom(this.childComponent.chatContainer)
       }

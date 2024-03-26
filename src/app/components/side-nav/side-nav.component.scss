@@ -4,6 +4,10 @@
     background: $primary-dark-color;
     height: 100vh;
     color: $text-color;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .secction {
