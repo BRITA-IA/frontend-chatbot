@@ -24,18 +24,20 @@ export class SideNavComponent {
 
 
   openQuestion(question: string) {
-    this.msjService.initChat()
-    if (this.ChatComponent) {
-      this.msjService.scrollToBottom(this.ChatComponent.chatContainer)
-    }
-    console.log(question);
-    this.msjService.addMessage(question).subscribe(() => {
-      // console.log(this.childComponent.chatContainer);
+    if (!this.msjService.timerState) {
+      this.msjService.timerState = true
+      this.msjService.initChat()
       if (this.ChatComponent) {
         this.msjService.scrollToBottom(this.ChatComponent.chatContainer)
       }
-    })
-
-
+      this.msjService.addMessage(question).subscribe(() => {
+        if (this.ChatComponent) {
+          this.msjService.scrollToBottom(this.ChatComponent.chatContainer)
+        }
+      })
+      setTimeout(() => {
+        this.msjService.timerState = false
+      }, 60000);
+    }
   }
 }

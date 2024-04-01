@@ -15,6 +15,7 @@ export class ChatService {
   private messages: Message[] = [];
   private messagesSubject: BehaviorSubject<Message[]> = new BehaviorSubject<Message[]>([]);
   public messages$: Observable<Message[]> = this.messagesSubject.asObservable();
+  private isTimerActive: boolean = false
 
   constructor(
     private http: HttpClient,
@@ -26,6 +27,12 @@ export class ChatService {
   initChat() {
     this.chatStart.next(true);
   }
+  set timerState(value: boolean) {
+    this.isTimerActive = value
+  }
+  get timerState(): boolean {
+    return this.isTimerActive;
+  }
 
   getChatState() {
     return this.chatStart.asObservable()
@@ -36,9 +43,10 @@ export class ChatService {
     const m: Message = {
       id: 1,
       message: question,
-      user: 'Juan'
+      user: 'Juan',
+      date: new Date()
     };
-    
+
     this.loading.setLoading(true);
     this.messages.push(m);
     this.messagesSubject.next([...this.messages])
@@ -48,7 +56,8 @@ export class ChatService {
         const mb: Message = {
           id: 2,
           message: res,
-          user: 'Bot'
+          user: 'Bot',
+          date: new Date()
         };
         this.messages.push(mb);
         this.messagesSubject.next([...this.messages])

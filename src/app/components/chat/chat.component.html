@@ -10,9 +10,11 @@
             class="h-100 d-flex align-items-center justify-content-center"></app-start-page>
         <app-chat-messages *ngIf="chatState"></app-chat-messages>
         <div class="input-message">
-            <input [(ngModel)]="inputValue" type="text" placeholder="Escribe cualquier pregunta..."
-                (keydown.enter)="sendMessage($event)" [disabled]="loading.isLoading()">
+            <input [(ngModel)]="inputValue" type="text"
+                [placeholder]="remainingTime ? 'Espera ' +remainingTime+ ' segundos para volver a escribir ...': 'Escribe cualquier pregunta ...'"
+                (keydown.enter)="sendMessage($event)" [disabled]="msjService.timerState">
             <i class="bi bi-send icon"></i>
+            <!-- <span *ngIf="isTimerActive">Tiempo restante: {{ remainingTime }} segundos</span> -->
         </div>
     </div>
 </div>

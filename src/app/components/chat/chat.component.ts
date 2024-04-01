@@ -21,8 +21,11 @@ export class ChatComponent implements OnInit {
   inputValue: string = ''
   chatState: boolean = false
   menuOpen: boolean = false;
+  isTimerActive: boolean = false
+  remainingTime: number = 0;
+  placeholder: string = 'Escribe cualquier pregunta ...'
   constructor(
-    private msjService: ChatService,
+    public msjService: ChatService,
     public loading: LoadingService,
   ) { }
 
@@ -33,18 +36,32 @@ export class ChatComponent implements OnInit {
   }
 
   sendMessage(ev: any) {
-    const message = ev.target.value;
-    if (this.childComponent) {
-      this.msjService.scrollToBottom(this.childComponent.chatContainer)
-    }
-    this.msjService.initChat()
-    this.msjService.addMessage(message).subscribe(() => {
-      this.inputValue = ''
 
+    if (!this.msjService.timerState) {
+      const message = ev.target.value;
       if (this.childComponent) {
         this.msjService.scrollToBottom(this.childComponent.chatContainer)
       }
-    })
+      this.msjService.initChat()
+      this.msjService.addMessage(message).subscribe(() => {
+        this.inputValue = ''
+
+        if (this.childComponent) {
+          this.msjService.scrollToBottom(this.childComponent.chatContainer)
+        }
+
+      })
+
+      this.msjService.timerState = true
+      this.remainingTime = 60;
+      const timer = setInterval(() => {
+        this.remainingTime--;
+        if (this.remainingTime <= 0) {
+          clearInterval(timer)
+          this.msjService.timerState = false
+        }
+      }, 1000)
+    }
   }
   open() {
     this.menuOpen = !this.menuOpen;

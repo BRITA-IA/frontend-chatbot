@@ -19,7 +19,7 @@
                     <span [ngClass]="{'text-animation': message.id != userData.id}">{{message.message}}</span>
                 </div>
                 <div class="time-message">
-                    <span class=""> hace 1 hora</span>
+                    <span class=""> {{message.date | date:'short'}}</span>
                 </div>
             </div>
             <button class="btn btn-primary bg-loading" type="button" disabled *ngIf="loading.isLoading() && last">
